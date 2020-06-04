@@ -1,5 +1,5 @@
 package com.model.study;
-
+//代理模式
 public class Daili {
     public static void main(String[] args) {
         ProxyInterface proxyInterface = new WeddingCompany(new NormaHome());
