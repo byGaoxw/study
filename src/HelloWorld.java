@@ -4,5 +4,6 @@ public class HelloWorld {
         System.out.println("第一次提交git");
         System.out.println("第2次提交git");
         System.out.println("第3次提交git");
+        System.out.println("测试合并");
     }
 }
