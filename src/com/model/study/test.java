@@ -17,14 +17,23 @@ public class test {
     * 计算两个日期之间的天数
     * */
     public static void main(String[] args) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse("2020-01-30");
-        int a = daysBetween(date,new Date()); //相差天数
-        int b = getMonthSpace(date,new Date()); //相差月份
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(isSameDate(date,new Date()));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        Date date = sdf.parse("2021");
+        int a = daysBetween(date, new Date()); //相差天数
+        int b = getMonthSpace(date, new Date()); //相差月份
+//        System.out.println(a);
+//        System.out.println(b);
+//        System.out.println(isSameDate(date,new Date()));
+        if (isSameDate(date, new Date())) {
+            System.out.println(getMonth(date));
+            System.out.println(getMonth(new Date()));
 
+        } else if (date.before(new Date())) {
+            System.out.println(12);
+        }
+
+        String da = String.format("%02d", 11);
+        System.out.println(da);
 //        System.out.println(BigDecimal.ZERO.subtract(BigDecimal.TEN));
 //        System.out.println(BigDecimal.ZERO.subtract(BigDecimal.TEN).add(BigDecimal.ZERO.subtract(BigDecimal.TEN)));
 
@@ -76,16 +85,24 @@ public class test {
             boolean isSameYear = cal1.get(Calendar.YEAR) == cal2
                     .get(Calendar.YEAR); // 年份
 //            boolean isSameMonth = isSameYear
-//                    && cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH);
+//                    && cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH); // 月
 //            boolean isSameDate = isSameMonth
 //                    && cal1.get(Calendar.DAY_OF_MONTH) == cal2
-//                    .get(Calendar.DAY_OF_MONTH);
+//                    .get(Calendar.DAY_OF_MONTH); // 年
 
             return isSameYear;
         } catch (Exception e) {
 
         }
         return false;
-
     }
+
+    public static int getMonth( Date date){
+        int month = 1;
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+//        month =month+c.get(Calendar.MONTH);
+        return month+c.get(Calendar.MONTH);
+    }
+
 }
